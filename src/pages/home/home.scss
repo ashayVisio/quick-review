@@ -1,0 +1,337 @@
+@import '/src/styles/variables.scss';
+
+.project {
+  width: 100%;
+  height: 100vh;
+  padding: 20px 20px 10px;
+  background-color: $white-2;
+  &Container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &Content {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+  }
+  &Image {
+    flex-grow: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+  .customCursor {
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; // So it doesn't interfere with clicking
+    transform: translate(-10px, -10px); // Center the cursor shape
+    z-index: 1000;
+  }
+  .annotation {
+    // width: 26px;
+    // height: 26px;
+    // @include f-center;
+    // border-radius: 50%;
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    outline: 0.6px solid #f3f4f4;
+    backdrop-filter: blur(4px);
+    @include fontSemibold(12px);
+    color: $white-0;
+    cursor: pointer;
+    @include f-center;
+    &:hover {
+      &.progress-circle {
+        stroke-dashoffset: 0;
+      }
+    }
+    &.selected {
+      outline: 2px solid #ff6058;
+    }
+    .progress-ring {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 42px;
+      height: 42px;
+      pointer-events: none;
+    }
+    .progress-circle {
+      transition: stroke-dashoffset 0.5s ease-in-out;
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+  }
+  &Markup {
+    padding: 8px;
+    border-radius: 14px;
+    background: #ffffff99;
+    box-shadow: 0px 3px 28px 4px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  &MarkupTools {
+    @include d-flex(space-between);
+    padding: 6px 22px;
+    border-radius: 10px;
+    gap: 12px;
+    border: 1px solid #e8e8e8;
+    background: #f4f4f4;
+    box-shadow: 0px 1px 1px 0px #0000001a;
+  }
+  &MarkupShapes {
+    @include d-flex(space-between);
+    width: 132px;
+    p {
+      cursor: pointer;
+    }
+    .selected {
+      g {
+        opacity: 1;
+      }
+    }
+  }
+  &MarkupColors {
+    @include d-flex;
+    gap: 10px;
+    span {
+      cursor: pointer;
+      width: 22px;
+      height: 22px;
+      border-radius: 44px;
+      border: 1.4px solid #07070733;
+    }
+    .selected {
+      border-color: #070707;
+    }
+    .yellow {
+      background-color: #f0ff48;
+    }
+    .blue {
+      background-color: #4da9f4;
+    }
+    .orange {
+      background-color: #ff8c57;
+    }
+  }
+  &MarkupCopy {
+    padding: 12px 10px;
+    border-radius: 8px;
+    background: $white-3;
+    h3 {
+      @include fontMed(12px);
+      color: $black-1;
+      letter-spacing: 0.24px;
+      padding-bottom: 8px;
+    }
+    textarea {
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      @include fontReg(13px);
+      color: $black-4;
+      line-height: 140%;
+      &::placeholder {
+        @include fontReg(13px);
+        opacity: 0.3;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  &MarkupSubmit {
+    @include d-flex(flex-end);
+    padding-top: 20px;
+    button {
+      padding: 10px 14px;
+      background-color: $black-0;
+      border-radius: 999px;
+      border: 1px solid $black-0;
+      @include fontMed(10px);
+      color: $white-0;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+    }
+  }
+  &CommentContainer {
+    max-width: 296px;
+    padding: 10px;
+    overflow-y: overlay;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &Comments {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &CommentsCard {
+    padding: 12px 12px 20px;
+    background-color: $white-0;
+    border-radius: 16px;
+    &.selected {
+      background-color: $peach-1;
+    }
+    &:hover {
+      outline: 2.6px solid $border-0;
+    }
+    label {
+      width: 26px;
+      height: 26px;
+      @include f-center;
+      border-radius: 40px;
+      border: 0.6px solid $white-1;
+      background: $black-2;
+      backdrop-filter: blur(4px);
+      @include fontSemibold(12px);
+      color: $white-0;
+      padding: 2px;
+    }
+    h2 {
+      @include d-flex;
+      gap: 6px;
+      @include fontReg(14px);
+      color: $black-0;
+      padding: 12px 0 16px;
+      span {
+        color: $black-1;
+      }
+    }
+    p {
+      @include fontReg(12px);
+      color: $black-4;
+      line-height: 140%;
+    }
+  }
+  &Tool {
+    padding: 10px 16px 10px 36px;
+    @include d-flex(space-between);
+    border-radius: 26px;
+    background: #ffffff99;
+    backdrop-filter: blur(10px);
+  }
+  &ToolContent {
+    @include d-flex;
+    gap: 20px;
+    span,
+    p {
+      cursor: pointer;
+    }
+  }
+  &ToolSetting {
+    @include d-flex;
+    gap: 20px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  &Settings {
+    width: 184px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 14px;
+    background: $white-3;
+    box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    padding: 20px;
+    bottom: 74px;
+    left: 0;
+    z-index: 2;
+    li {
+      @include d-flex(space-between);
+      @include fontMed(12px);
+      color: $black-0;
+      cursor: pointer;
+      label {
+        width: 20px;
+        height: 20px;
+        @include fontMed(11px);
+        color: $black-0;
+        background-color: $white-4;
+        border-radius: 4px;
+        @include f-center;
+        mix-blend-mode: multiply;
+      }
+      rect {
+        stroke: none;
+        fill: $white-4;
+      }
+    }
+  }
+  &ToolZoom {
+    @include d-flex;
+    gap: 8px;
+    span {
+      @include fontMed(12px);
+      color: $black-0;
+    }
+  }
+  &ToolBtns {
+    @include d-flex;
+    gap: 10px;
+    button {
+      padding: 11px 12px;
+      width: 162px;
+      @include f-center;
+      border-radius: 12px;
+      background-color: $black-0;
+      color: $white-0;
+      @include fontMed(14px);
+      letter-spacing: 0.28px;
+      cursor: pointer;
+    }
+    p {
+      width: 42px;
+      height: 42px;
+      @include f-center;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid $black-1;
+      position: relative;
+      span {
+        width: 24px;
+        height: 24px;
+        @include f-center;
+        @include fontMed(11px);
+        color: $white-0;
+        background-color: $black-0;
+        border-radius: 50%;
+        position: absolute;
+        top: -12px;
+        right: -12px;
+      }
+    }
+  }
+  .min {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    background-color: #00000010;
+    padding: 8px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    path {
+      fill: white;
+    }
+  }
+}

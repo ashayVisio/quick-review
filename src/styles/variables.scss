@@ -1,0 +1,63 @@
+// colors
+$white-0: #ffffff;
+$white-1: #f3f4f4;
+$white-2: #d5d5d5;
+$white-3: #f4f4f4;
+$white-4: #efefef;
+
+$grey-0: #b0b0b0;
+
+$black-0: #000000;
+$black-1: #00000033;
+$black-2: #00000060;
+$black-3: #818181;
+$black-4: #474747;
+
+$peach-0: #ffa07e;
+$peach-1: #ffeceb;
+
+$border-0: #ff605899;
+
+// Flex mixins
+@mixin f-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin d-flex($jc: flex-start) {
+  display: flex;
+  justify-content: $jc;
+  align-items: center;
+}
+
+@mixin flex($jc: flex-start) {
+  display: flex;
+  justify-content: $jc;
+}
+
+// Font mixins
+@mixin fontLight($fs: 1rem) {
+  font-size: $fs;
+  font-weight: 300;
+}
+
+@mixin fontReg($fs: 1rem) {
+  font-size: $fs;
+  font-weight: 400;
+}
+
+@mixin fontMed($fs: 1rem) {
+  font-size: $fs;
+  font-weight: 500;
+}
+
+@mixin fontSemibold($fs: 1rem) {
+  font-size: $fs;
+  font-weight: 600;
+}
+
+@mixin fontBold($fs: 1rem) {
+  font-size: $fs;
+  font-weight: 700;
+}
