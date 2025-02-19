@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/model-viewer": "^4.0.0",
     "cra-template": "1.2.0",
     "eslint": "^8.57.1",
     "gsap": "^3.12.7",
