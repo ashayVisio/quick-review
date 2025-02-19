@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import AR from "../pages/ar";
 import Chair from "../pages/chair";
 import Leaf from "../pages/leaf";
+import ChairXr from "../pages/chair-xr";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route exact path="/ar" element={<AR />} />
         <Route exact path="/chair" element={<Chair />} />
         <Route exact path="/leaf" element={<Leaf />} />
+        <Route exact path="/chair-ar" element={<ChairXr />} />
       </Routes>
     </BrowserRouter>
   );
