@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@google/model-viewer";
-
+import { QRCodeSVG } from "qrcode.react";
 import "./ar.scss";
 const Chair = () => {
+  const [isARSupported, setIsARSupported] = useState(false);
+  const [showQR, setShowQR] = useState(false);
+  const modelUrl = window.location.href;
+
+  useEffect(() => {
+    const modelViewer = document.querySelector("model-viewer");
+    if (modelViewer) {
+      setIsARSupported(modelViewer.canActivateAR);
+    }
+  }, []);
+
+  // Generate direct AR link based on the device
+  const getARLink = () => {
+    if (/iPhone|iPad/.test(navigator.userAgent)) {
+      // iOS: Directly open in Quick Look
+      return modelUrl;
+    } else {
+      // Android: Directly open in Scene Viewer via intent
+      return `https://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(
+        modelUrl
+      )}&mode=ar_only`;
+    }
+  };
+
   return (
     <section className="ar">
       <model-viewer
@@ -19,10 +43,25 @@ const Chair = () => {
         shadow-softness="0.34"
         auto-rotate
         disable-pan
-        // skybox-image="/spruit_sunrise_1k_HDR.jpg"
         skybox-height="2m"
         max-camera-orbit="auto 90deg auto"
-      ></model-viewer>
+        ar-scale="fixed"
+      >
+        {isARSupported ? (
+          ""
+        ) : (
+          <button className="ar-button" onClick={() => setShowQR(true)}>
+            View in AR
+          </button>
+        )}
+      </model-viewer>
+      {showQR && (
+        <div className="qr-popup">
+          <p>Scan this QR code to view in AR</p>
+          <QRCodeSVG value={getARLink()} size={200} />
+          {/* <button onClick={() => setShowQR(false)}>Close</button> */}
+        </div>
+      )}
     </section>
   );
 };

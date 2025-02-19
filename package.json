@@ -9,6 +9,7 @@
     "gsap": "^3.12.7",
     "konva": "^9.3.18",
     "prettier": "^3.4.2",
+    "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-konva": "^19.0.2",
