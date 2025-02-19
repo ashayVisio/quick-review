@@ -6,6 +6,7 @@ import Chair from "../pages/chair";
 import Leaf from "../pages/leaf";
 import ChairXr from "../pages/chair-xr";
 import AutoPart from "../pages/autopart";
+import Oilfilter from "../pages/oilfilter";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route exact path="/ar" element={<AR />} />
         <Route exact path="/chair" element={<Chair />} />
         <Route exact path="/autopart" element={<AutoPart />} />
+        <Route exact path="/oilfilter" element={<Oilfilter />} />
         <Route exact path="/leaf" element={<Leaf />} />
         <Route exact path="/chair-ar" element={<ChairXr />} />
       </Routes>
