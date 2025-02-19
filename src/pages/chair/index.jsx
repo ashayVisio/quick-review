@@ -9,7 +9,7 @@ const Chair = () => {
         id="model-viewer"
         src="/Chair.glb"
         ar
-        ar-modes="webxr scene-viewer quick-look"
+        ar-modes="scene-viewer webxr quick-look"
         camera-controls
         tone-mapping="neutral"
         touch-action="pan-y"
