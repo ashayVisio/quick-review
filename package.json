@@ -17,7 +17,8 @@
     "react-toastify": "^11.0.3",
     "sass": "^1.83.4",
     "use-image": "^1.1.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webxr-polyfill": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
