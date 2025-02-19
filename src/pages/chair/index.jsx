@@ -14,16 +14,26 @@ const Chair = () => {
     }
   }, []);
 
-  // Generate direct AR link based on the device
+  // Reliable iOS check
+  const isIOS = () => {
+    return (
+      navigator.platform.includes("iPhone") ||
+      navigator.platform.includes("iPad") ||
+      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+  };
+
+  // Generate direct AR link based on device
   const getARLink = () => {
-    if (/iPhone|iPad/.test(navigator.userAgent)) {
+    if (isIOS()) {
       // iOS: Directly open in Quick Look
       return modelUrl;
     } else {
+      return modelUrl;
       // Android: Directly open in Scene Viewer via intent
-      return `https://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(
-        modelUrl
-      )}&mode=ar_only`;
+      // return `https://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(
+      //   modelUrl
+      // )}&mode=ar_only`;
     }
   };
 
