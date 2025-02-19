@@ -9,7 +9,7 @@ const Chair = () => {
         id="model-viewer"
         src="/Chair.glb"
         ar
-        ar-modes="scene-viewer quick-look"
+        ar-modes="webxr scene-viewer quick-look"
         camera-controls
         touch-action="pan-y"
         alt="A 3D model of an astronaut"

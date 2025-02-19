@@ -8,6 +8,7 @@ const Leaf = () => {
       <model-viewer
         src="/boom_2_.glb"
         ar
+        ar-modes="webxr scene-viewer quick-look"
         ar-placement="wall"
         camera-controls
         touch-action="pan-y"
