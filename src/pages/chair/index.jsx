@@ -11,12 +11,15 @@ const Chair = () => {
         ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
+        tone-mapping="neutral"
         touch-action="pan-y"
         alt="A 3D model of an astronaut"
-        shadow-intensity="2"
+        shadow-intensity="0.38"
+        exposure="0.8"
+        shadow-softness="0.34"
         auto-rotate
         disable-pan
-        skybox-image="/spruit_sunrise_1k_HDR.jpg"
+        // skybox-image="/spruit_sunrise_1k_HDR.jpg"
         skybox-height="2m"
         max-camera-orbit="auto 90deg auto"
       ></model-viewer>
