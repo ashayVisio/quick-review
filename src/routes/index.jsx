@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
-import AR from "../pages/ar";
-import Chair from "../pages/chair";
-import Leaf from "../pages/leaf";
-import ChairXr from "../pages/chair-xr";
 import AutoPart from "../pages/autopart";
-import Oilfilter from "../pages/oilfilter";
+import OilFilter from "../pages/oil-filter";
 
 const AppRoutes = () => {
   useEffect(() => {
@@ -26,12 +22,8 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/ar" element={<AR />} />
-        <Route exact path="/chair" element={<Chair />} />
+        <Route exact path="/oilfilter" element={<OilFilter />} />
         <Route exact path="/autopart" element={<AutoPart />} />
-        <Route exact path="/oilfilter" element={<Oilfilter />} />
-        <Route exact path="/leaf" element={<Leaf />} />
-        <Route exact path="/chair-ar" element={<ChairXr />} />
       </Routes>
     </BrowserRouter>
   );

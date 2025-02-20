@@ -3,7 +3,7 @@ import "@google/model-viewer";
 import { QRCodeSVG } from "qrcode.react";
 import gsap from "gsap";
 import "../../styles/ar.scss";
-const AutoPart = () => {
+const OilFilter = () => {
   const [showQR, setShowQR] = useState(false);
   const modelUrl = window.location.href;
 
@@ -11,6 +11,7 @@ const AutoPart = () => {
     const modelViewer = document.querySelector("model-viewer");
     if (modelViewer) {
       modelViewer.addEventListener("load", () => {
+        modelViewer.scale = "0.7 0.7 0.7";
         gsap.to(".ar", 0.3, {
           opacity: 1,
           ease: "power3.inOut",
@@ -23,7 +24,7 @@ const AutoPart = () => {
     <section className="ar">
       <model-viewer
         id="model-viewer"
-        src="/Camshaft.glb"
+        src="/oil_filter.glb"
         ar
         ar-modes="scene-viewer webxr quick-look"
         camera-controls
@@ -37,8 +38,8 @@ const AutoPart = () => {
         disable-pan
         skybox-height="2m"
         max-camera-orbit="auto 90deg auto"
+        camera-orbit="100.9deg 80.15deg 0.3931m"
         ar-scale="fixed"
-        camera-orbit="-1725deg 0.0000573deg 1.117m"
       ></model-viewer>
       <div className="back">
         <p>x</p>
@@ -58,4 +59,4 @@ const AutoPart = () => {
   );
 };
 
-export default AutoPart;
+export default OilFilter;
